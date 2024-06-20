@@ -36,6 +36,7 @@ $rev = $review->fetch_review_by_id($id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">    
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -105,6 +106,8 @@ $rev = $review->fetch_review_by_id($id);
                        <li class="nav-item">
                          <a class="nav-link" href="contact.php">Contact</a>
                        </li>
+
+                       
                      </ul>
                     
 

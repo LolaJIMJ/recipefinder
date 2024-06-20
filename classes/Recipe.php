@@ -1,6 +1,17 @@
 <?php
 require_once "Db.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+$autoload_path = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoload_path)) {
+    require $autoload_path;
+} else {
+    die("Autoload file not found at $autoload_path");
+}
+
+
 
 class Recipe extends Db{
 	private $dbconn;
@@ -28,14 +39,57 @@ public function insert_recipe($name,$desc,$instruction,$ingredients,$file,$cookt
 	$stmt = $this->dbconn->prepare($sql);
 	$resp = $stmt->execute([$name,$desc,$instruction,$ingredients,$filename,$cooktime,$catid,$userid,$author]);
 		if($resp){
-			return true;
+          
+       // Save notification to the database
+        $this->saveNotification($name, $author);
+
+           return true;
 		}else{
 			return false;
 		}
-	
+   }
+
+
+
+private function saveNotification($name, $author) {
+    $message = "A new recipe '$name' has been added by $author.";
+    $sql = "INSERT INTO notifications (message) VALUES (?)";
+    $stmt = $this->dbconn->prepare($sql);
+    $stmt->execute([$message]);
+
+    // Send email notification to admin
+    $this->sendEmailNotification('New Recipe Added', $message);
 }
 
-		
+private function sendEmailNotification($subject, $body) {
+    $mail = new PHPMailer(true);
+
+    try {
+        
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com'; 
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'adenijiololadeh@gmail.com';
+        $mail->Password   = 'avnx mqjz ieqg yqlc';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        // Recipients
+        $mail->setFrom('lolly@gmail.com', 'Recipe Finder');
+        $mail->addAddress('lolly@gmail.com'); 
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+
+        $mail->send();
+    } catch (Exception $e) {
+        
+        error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+    }
+}
+
 
 public function get_recipe_by_id($id) {
 	$sql='SELECT * FROM recipe  WHERE recipe_id=?';
@@ -60,38 +114,6 @@ public function update_recipe($name,$desc,$instruction,$ingredients,$cooktime,$c
     $response = $stmt->execute([$name,$desc,$instruction,$ingredients,$cooktime,$catid,$user_id,$recipe_id]);
     return $response;
 }
-
-
-
-
-
-// public function searchRecipe($searchValue) {
-//     $searchValue = trim(strtolower($searchValue));
-//     $searchParam = "%" . $searchValue . "%";
-
-//     $sql = "SELECT recipe.*, category.category_name 
-//             FROM recipe 
-//             JOIN category ON recipe.category_id = category.category_id
-//             WHERE LOWER(recipe.recipe_name) LIKE :searchParam 
-//             OR LOWER(recipe.author) LIKE :searchParam 
-//             OR LOWER(category.category_name) LIKE :searchParam";
-
-//     $stmt = $this->dbconn->prepare($sql);
-//     $stmt->execute([':searchParam' => $searchParam]);
-
-//     if ($stmt->rowCount() > 0) {
-//         echo "Search Results:<br>";
-//         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-//             echo "Recipe Name: " . htmlspecialchars($row['recipe_name']) . "<br>";
-//             echo "Author: " . htmlspecialchars($row['author']) . "<br>";
-//             echo "Category: " . htmlspecialchars($row['category_name']) . "<br>";
-//             echo "<br>";
-//         }
-//     } else {
-//         echo "No results found.";
-//     }
-// }
-
 
 public function searchRecipe($searchValue) {
     $searchValue = trim(strtolower($searchValue));

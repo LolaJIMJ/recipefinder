@@ -45,14 +45,12 @@ background-color: #F4F4F4;
 }
 
 .btn-primary {
-    /* background-color: #8bad00;
-    border: 1px solid #8bad00; */
+    
     background-color: black;
     border: black;
 }
 .btn-primary:hover {
-    /* background-color: #647c0c;
-    border: 1px solid #647c0c; */
+   
     background-color: black;
     border: black;
 }

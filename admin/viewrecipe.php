@@ -24,27 +24,26 @@ $recipe_details=$category->get_recipe_by_id($id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
+   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">    
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="css/custom.css">
-   
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="stylesheet" href="css/responsive.css">
+   <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="fontawesome/css/fontawesome.css">
     <title> Recipe Finder | recipe details</title>
     
 </head>
 
+ <!-- body -->
 
  
-<body>
+ <body>
 
 
 <div class="container-fluid">
         <div class="row sticky-top">
-           <div class="col" style="font-size: 20px;">
+           <div class="col" style="font-size: 20px; padding-left:20px;">
               <nav class="navbar navbar-expand-lg bg-warning">
                  <div class="container-fluid">
                  <img src="img/logo2.png" alt="#" height=40px width=30px />
@@ -55,31 +54,49 @@ $recipe_details=$category->get_recipe_by_id($id);
                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                        <li class="nav-item">
-                         <a class="nav-link active" aria-current="page" href="dashboard.php">Home</a>
+                         <a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a>
                        </li>
-                       <li class="nav-item">
-                         <a class="nav-link" href="about.php">About</a>
-                       </li>
-                      
-                       
-                      
-                       <li class="nav-item">
-                         <a class="nav-link" href="contact.php">Contact</a>
-                       </li>
-                     </ul>
-                    
 
-<form class="d-flex" role="search" style="padding-left:400px" action="search_results.php" method="POST">
-<input class="form-control me-2" type="search" name="searchvalue" placeholder="Search" aria-label="Search">
-<button class="btn btn-outline-dark" type="submit">Search</button>
-</form>
+                       <li class="nav-item">
+                         <a class="nav-link" href="recipes.php">Admin Recipes</a>
+                       </li>
+
+
+                       <li class="nav-item">
+                         <a class="nav-link" href="add.php">Add Recipe</a>
+                       </li>
+
+                       <li class="nav-item">
+                         <a class="nav-link" href="totalrecipes.php">User Recipes</a>
+                       </li>
+
+                       <li class="nav-item">
+                         <a class="nav-link" href="totalusers.php">Users</a>
+                       </li>
+
+                       <li class="nav-item">
+                         <a class="nav-link" href="admin.php">Admin</a>
+                       </li>
+
+                       <li class="nav-item">
+                         <a class="nav-link" href="categories.php">Maintenance</a>
+                       </li>
+
+                   <li class="nav-item">
+                <a class="nav-link"  href="admin_logout.php" onclick="return alert('Admin Successfully Logged out')">Logout</a>
+                   </li>
+
+          </ul>
+                     
+
+
 
 
             </div>
                  </div>
                </nav>
            </div>
-        </div>
+        </div>  
 
    
     <!-- The navigation bar ending -->
@@ -139,7 +156,7 @@ $recipe_details=$category->get_recipe_by_id($id);
                 </div>
                 
 				
-    <!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
 
     

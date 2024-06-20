@@ -13,12 +13,19 @@ $result = $category->getAllCategories();
 
 ?>
 
+<?php
+   require_once "partials/recipes.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+     <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <title>RecipeFinder</title>
+    
     <title>Categories Page</title>
 </head>
 
@@ -39,11 +46,7 @@ $result = $category->getAllCategories();
     foreach ($result as $row) {
     ?>
     
-
-
-
-
-        <tr>
+         <tr>
           
             <td><?php echo $row['category_id'] ?></td>
             <td><?php echo $row['category_name']?></td>
@@ -59,11 +62,9 @@ $result = $category->getAllCategories();
     
       ?>
   
-
-
-
-    </table>
+   </table>
 
     <button><a href="categories.php">Back</a></button>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

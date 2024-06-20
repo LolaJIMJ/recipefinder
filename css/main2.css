@@ -199,7 +199,7 @@ Recipes
 
 .recipe-img:hover {
   
-  transform: scale(1.1); /* Scale the image to 110% on hover */
+  transform: scale(1.1); 
 }
 .recipe h5 {
   margin-bottom: 0;
@@ -237,7 +237,7 @@ Recipes
   }
   .tags-container {
     order: 0;
-    /* background: blue; */
+   
   }
   .tags-list {
     display: grid;
@@ -314,7 +314,6 @@ Contact Page
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: var(--black); */
   background-color: #582e26;
   color: white;
 }

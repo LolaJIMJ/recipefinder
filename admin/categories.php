@@ -27,58 +27,6 @@ if(isset($_POST['send'])) {
    
      <style>
 
-
-
-/* body {
-    font-family: "Montserrat", sans-serif;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px;
-    background-image: url("./assets/img/pasta.jpg");
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height:20px
-}
-
-.logo a {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
-    color: #fff;
-    font-family: Lucida Sans Typewriter;
-}
-
-ul {
-    display: flex;
-    flex-direction: row;
-}
-
-li {
-    list-style-type: none;
-    margin-left: 3px;
-    color: #fff;
-    font-size: 20px;
-    font-family: Arial Black;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 200px); 
-} */
-
-
-
 .vertical-menu {
     width: 300px;
     justify-content:center;
@@ -131,19 +79,6 @@ footer {
 </head>
 <body>
 
-<!-- <header>
-    <div class="logo"><a href="dashboard.php">Home</a></div>
-    <nav>
-        <ul>
-            <li> Welcome Admin</li>
-        </ul>
-    </div>
-    </nav>
-
-    
-    <br>
-</header> -->
-  <br><br><br> <br><br><br>
 
 
 <div class="vertical-menu">
