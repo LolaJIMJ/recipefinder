@@ -10,4 +10,4 @@ session_start();
    exit();
      
 
-?>
+

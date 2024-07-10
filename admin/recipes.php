@@ -28,29 +28,7 @@ if(isset($_SESSION['adminonline']) && !empty($_SESSION['adminonline'])) {
 
 <div id="page-container">
 <div id="content-wrap">
-    <!-- <div class="container" style="background: linear-gradient(90deg, transparent, #03a34a);box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border-radius: 10px;  background: rgba(0,0,0,.4);">
     
-    
-    <div class="form"> -->
-    
-
-                    <!--<h3 style="color:white;font-size:20px;">
-                    Welcome!--> <?php //if(isset($data['admin_name'])) {
-                  //  echo "Welcome! " . ucfirst($data['admin_name']);
-                  //  } else {
-                  //  echo "Welcome!";
-                // }   ?>
-                    <!-- </h3> -->
-        <!-- <p style="color:white;font-size:30px;">You are now in the dashboard page.</p> -->
-    <!-- </div> -->
-   <!-- </div>
-  </form>
-
-</div>
-</div>
-</div> -->
 <div class="row">
   <div class="col">
     <div class="card-body">
@@ -73,8 +51,7 @@ if(isset($_SESSION['adminonline']) && !empty($_SESSION['adminonline'])) {
                     <th class="text-center p-0">Description</th>
                      <th class="text-center p-0">Instruction</th>
                     <th class="text-center p-0">Ingredients</th> 
-                    <!-- <th class="text-center p-0">Status</th> -->
-                    <th class="text-center p-0">Author</th>
+                   <th class="text-center p-0">Author</th>
                     <th class="text-center p-0">Action</th>
                 </tr>
             </thead>

@@ -1,5 +1,5 @@
 <?php
-//require_once "Db.php";
+
 require_once "classes/Category.php";
 
 
@@ -21,11 +21,5 @@ if(isset($_GET['deleteid'])) {
     header("Location: categoriesdisplay.php");
     exit;
 }
-
-
-
-?>
-
-
 
 

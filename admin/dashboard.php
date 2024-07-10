@@ -4,7 +4,9 @@ session_start();
 require_once "admin_guard.php";
 
 require_once "classes/Admin.php";
+require_once "classes/Recipe.php";
 $admin = new Admin;
+
 $countcategory=$admin->get_all_category();
 $countrecipe=$admin->get_all_recipe();
 $countuser=$admin->get_all_user();
@@ -18,6 +20,9 @@ $count_admin=count($countadmin);
 
 
 
+$notifications = $admin->get_all_notifications();
+$unread_notifications = $admin->get_unread_notifications();
+$unread_notifications_count = $admin->get_unread_notifications_count();
 
 ?>
 
@@ -52,15 +57,14 @@ $count_admin=count($countadmin);
         <img src="img/search.png" alt="recipe" height="30px" width="30px">
         
         </div>
+        
         <div class="header-right">
          
-          <img src="img/notify.png" alt="recipe" height="30px" width="30px">
-         
-          <img src="img/mail.png" alt="recipe" height="30px" width="30px">
-          <img src="img/account.png" alt="recipe" height="30px" width="30px">
+        <a href="notify.php">
+            <img src="img/notify.png" alt="recipe" height="30px" width="30px">
+            <span class="notification-count"><?php echo $unread_notifications_count ?></span>
+          </a>
         
-        
-
         </div>
       </header>
       <!-- End Header -->
@@ -114,16 +118,11 @@ $count_admin=count($countadmin);
               <img src="img/engineer.png" alt="user" height="30px" width="30px"> Maintenance
             </a>
           </li>
-          <li class="sidebar-list-item">
-            
-            <a href="index.php" onClick="alertpop()">
-  <script>
-        function alertpop() {
-            alert("Admin Successfully Logged out");
+          
 
-        }
-    </script>
-               <img src="img/logout.png" alt="user" height="30px" width="30px"> Logout
+          <li class="sidebar-list-item">
+            <a href="admin_logout.php" onClick="return confirm('Are you sure you want to log out?')">
+              <img src="img/logout.png" alt="user" height="30px" width="30px"> Logout
             </a>
           </li>
         </ul>
@@ -174,16 +173,29 @@ $count_admin=count($countadmin);
             <h1> <?php print $count_admin ?></h1>
            
           </div>
-          
+         
 
-        </div>
+           <div class="notifications">
+                <h2>Notifications</h2>
+              
+                <ul>
+            <?php foreach ($unread_notifications as $notification): ?>
+              <li>
+                <?= htmlspecialchars($notification['message']) ?>
+                <?= $notification['created_at'] ?>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+            </div>
 
-      
+            </div>
           </div>
 
         </div>
       </main>
       <!-- End Main -->
+
+      
 
     </div>
 

@@ -88,7 +88,8 @@ if(isset($_GET["id"])){
                         </li>
 						
             <li class="nav-item">
-                <a class="nav-link" href="login.php" onclick="return alert('User Successfully Logged out')">Logout</a>
+                <a class="nav-link" href="logout.php" onclick="return alert('User Successfully Logged out')">Logout</a>
+               
               </li>
                          
 					

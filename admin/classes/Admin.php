@@ -22,7 +22,7 @@
                 $result = $stmt->execute([$email]);
                 $record = $stmt->fetch(PDO::FETCH_ASSOC);
                 // $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                if($record){ //username is correct, lets check the pwd
+                if($record){ //username is correct
 
                     $hashed = $record['admin_password'];
                     echo "Hashed Password from Database: " . $hashed . "<br>"; // Debug output
@@ -103,34 +103,36 @@
             return $result;
         }
     
-        
+
+        public function get_all_notifications() {
+            $sql = "SELECT * FROM notifications ORDER BY created_at DESC";
+            $stmt = $this->dbconn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
         
 
-        // public function fetch_recipe_by_id( $id ){
-        //     $sql = 'SELECT * FROM `recipe` WHERE userid = ?';
-        //     $stmt = $this->dbconn->prepare($sql);
-        //     $stmt->execute([$id]);
-        //     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //     return $result;
-            
-        // }
-
-        // public function get_user_by_id($id){
-        //     try{
-        //        $query = "SELECT * FROM user WHERE user_id = ?";
-        //        $stmt = $this->dbconn->prepare($query);
-        //        $stmt->execute([$id]);
-        //        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        //          return $result;
-        //     }catch (PDOException $e) {
-        //         $_SESSION['errormsg'] = $e->getMessage();
-        //          return 0;
-        //     }catch(Exception $e){
-        //         $_SESSION['errormsg'] = $e->getMessage();
-        //         return 0;
-        //     }
-        // }
-    }
+        public function get_unread_notifications_count() {
+            $sql = "SELECT COUNT(*) FROM notifications WHERE is_read = 0";
+            $stmt = $this->dbconn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchColumn();
+        }
+        
+        public function mark_notifications_as_read() {
+            $sql = "UPDATE notifications SET is_read = 1 WHERE is_read = 0";
+            $stmt = $this->dbconn->prepare($sql);
+            $stmt->execute();
+        }
+        
+         public function get_unread_notifications() {
+            $sql = "SELECT * FROM notifications WHERE is_read = 0";
+            $stmt = $this->dbconn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        
+ }
 
     
    

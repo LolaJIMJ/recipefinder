@@ -139,7 +139,7 @@ form{
                         </li>
                         
                         <li class="nav-item">
-                          <a class="nav-link" href="totalrecipes.php">User Recipe</a>
+                          <a class="nav-link" href="totalrecipes.php">User Recipes</a>
                         </li>
 
                         <li class="nav-item">
@@ -155,7 +155,7 @@ form{
                         </li>
                        
               <li class="nav-item">
-                <a class="nav-link" href="index.php" onclick="return alert('Admin Successfully Logged out')">Logout</a>
+                <a class="nav-link"  href="admin_logout.php" onclick="return alert('Admin Successfully Logged out')">Logout</a>
               </li>
 		     </ul>
     </div>

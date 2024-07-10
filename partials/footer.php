@@ -7,7 +7,7 @@
                         <h3> Explore  <br> endless culinary possibilities with our recipe finder.</h3>
                         <p>Join us on a flavorful journey!</p>
                       </div>
-                     <button class="sub_btn" href="#">Terms of Service</button>
+                     <!-- <button class="sub_btn" href="#">Terms of Service</button> -->
                   </div>
                </div>
             </div>

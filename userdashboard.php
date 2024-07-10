@@ -97,8 +97,13 @@ if(isset($_GET["id"])){
                     <a href="index2.php" class="nav-item nav-link"><img src="img/home.png" alt="recipe" height="30px" width="30px">Home</a>
                      <a href="about.php" class="nav-item nav-link"><img src="img/about.png" alt="recipe" height="30px" width="30px">About Us</a>
                     <a href="add.php" class="nav-item nav-link"><img src="img/food.png" alt="recipe" height="30px" width="30px">Add New</a>
-                    <a href="login.php" onclick="return alert('User Successfully Logged Out')" class="nav-item nav-link"><img src="img/logout.png" alt="recipe" height="30px" width="30px">Logout</a>
+
+                    <a href="logout.php" onclick="return alert('User Successfully Logged Out')" class="nav-item nav-link"><img src="img/logout.png" alt="recipe" height="30px" width="30px">Logout</a>
+                   
                     
+
+                    
+
                 </div>
             </nav>
         </div>
